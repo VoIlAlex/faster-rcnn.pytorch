@@ -23,7 +23,7 @@ mkdir -p $OUTPUT_FOLDER
 
 # Run main script
 CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py \
-                   --dataset pascal_voc --net vgg16 \
+                   --dataset $DATASET --net $MODEL \
                    --bs $BATCH_SIZE --nw $WORKER_NUMBER \
                    --lr $LEARNING_RATE --lr_decay_step $DECAY_STEP \
                    --cuda --epochs $EPOCHS 1> $STDOUT_PATH 2> $STDERR_PATH
