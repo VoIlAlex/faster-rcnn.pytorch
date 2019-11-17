@@ -13,6 +13,8 @@ OUTPUT_FOLDER="models/"$MODEL"/"$DATASET"/faster_rcnn_"$EPOCHS"ep"
 STDOUT_PATH=$OUTPUT_FOLDER"/test_stdout.txt"
 STDERR_PATH=$OUTPUT_FOLDER"/test_stderr.txt"
 
+# Preprocessing routines
+mkdir -p $OUTPUT_FOLDER
 
 # Run main script
 python test_net.py --dataset $DATASET --net $MODEL \
