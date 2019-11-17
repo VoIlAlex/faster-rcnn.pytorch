@@ -10,6 +10,6 @@ CHECKPOINT=10021
 MODELS_PATH=models
 
 # Run main script
-python demo.py --net $MODEL \
+python3 demo.py --net $MODEL \
                --checksession $SESSION --checkepoch $EPOCH --checkpoint $CHECKPOINT \
                --cuda --load_dir $MODELS_PATH

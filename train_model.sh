@@ -22,7 +22,7 @@ mkdir -p $OUTPUT_FOLDER
 
 
 # Run main script
-CUDA_VISIBLE_DEVICES=$GPU_ID python trainval_net.py \
+CUDA_VISIBLE_DEVICES=$GPU_ID python3 trainval_net.py \
                    --dataset $DATASET --net $MODEL \
                    --bs $BATCH_SIZE --nw $WORKER_NUMBER \
                    --lr $LEARNING_RATE --lr_decay_step $DECAY_STEP \

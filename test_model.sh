@@ -17,6 +17,6 @@ STDERR_PATH=$OUTPUT_FOLDER"/test_stderr.txt"
 mkdir -p $OUTPUT_FOLDER
 
 # Run main script
-python test_net.py --dataset $DATASET --net $MODEL \
+python3 test_net.py --dataset $DATASET --net $MODEL \
                    --checksession $SESSION --checkepoch $EPOCH --checkpoint $CHECKPOINT \
                    --cuda 1> $STDOUT_PATH 2> $STDERR_PATH
