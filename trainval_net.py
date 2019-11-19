@@ -296,6 +296,17 @@ if __name__ == '__main__':
     logger = SummaryWriter("logs")
 
   for epoch in range(args.start_epoch, args.max_epochs + 1):
+    # setting output streams
+    logs_path = os.path.join(output_dir, 'faster_rcnn_{}_{}ep'.format(args.session, epoch))
+    if not os.path.exists(logs_path):
+      os.makedirs(logs_path)
+
+    stdout_path = os.path.join(logs_path, 'train_stdout.txt')
+    stderr_path = os.path.join(logs_path, 'train_stderr.txt')
+
+    sys.stdout = open(stdout_path, 'w+')
+    sys.stderr = open(stderr_path, 'w+')
+
     # setting to train mode
     fasterRCNN.train()
     loss_temp = 0
@@ -356,6 +367,7 @@ if __name__ == '__main__':
         print("\t\t\tfg/bg=(%d/%d), time cost: %f" % (fg_cnt, bg_cnt, end-start))
         print("\t\t\trpn_cls: %.4f, rpn_box: %.4f, rcnn_cls: %.4f, rcnn_box %.4f" \
                       % (loss_rpn_cls, loss_rpn_box, loss_rcnn_cls, loss_rcnn_box))
+        sys.stdout.flush()
         if args.use_tfboard:
           info = {
             'loss': loss_temp,
