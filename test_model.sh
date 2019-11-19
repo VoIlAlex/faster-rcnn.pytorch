@@ -1,15 +1,46 @@
+#! usr/bin/bash
+
+
 # Settings
-MODEL=vgg16
-DATASET=pascal_voc
+if [ -z "$1" ]
+then
+    MODEL=vgg16
+else
+    MODEL=$1
+fi
+
+if [ -z "$2" ]
+then
+    DATASET=pascal_voc
+else
+    DATASET=$2
+fi
 
 
 # Session specification
-SESSION=1
-EPOCH=1
-CHECKPOINT=10021
+if [ -z "$3" ]
+then
+    SESSION=1
+else
+    SESSION=$3
+fi
+
+if [ -z "$4" ]
+then
+    EPOCH=11
+else
+    EPOCH=$4
+fi
+
+if [ -z "$5" ]
+then
+    CHECKPOINT=10021
+else   
+    CHECKPOINT=$5
+fi
 
 # Paths
-OUTPUT_FOLDER="models/"$MODEL"/"$DATASET"/faster_rcnn_"$EPOCHS"ep"
+OUTPUT_FOLDER="models/"$MODEL"/"$DATASET"/faster_rcnn_"$SESSION"_"$EPOCH"ep"
 STDOUT_PATH=$OUTPUT_FOLDER"/test_stdout.txt"
 STDERR_PATH=$OUTPUT_FOLDER"/test_stderr.txt"
 
