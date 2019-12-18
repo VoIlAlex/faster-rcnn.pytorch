@@ -3,7 +3,7 @@ MODEL=vgg16
 
 # Session specification
 SESSION=1
-EPOCH=1
+EPOCH=12
 CHECKPOINT=10021
 
 # Paths
